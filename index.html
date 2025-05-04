@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💼 Gerenciador Financeiro</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans min-h-screen">
+
+  <header class="bg-gray-800 p-6 shadow-md text-center">
+    <h1 class="text-3xl font-bold text-emerald-400">💼 Gerenciador Financeiro Empresarial</h1>
+    <p class="text-gray-300 mt-2">Controle suas finanças de forma simples, bonita e eficiente</p>
+  </header>
+
+  <main class="max-w-6xl mx-auto p-6">
+    <section class="bg-gray-800 p-6 rounded-2xl shadow-xl mb-8">
+      <h2 class="text-2xl font-semibold mb-4 text-emerald-300">Adicionar Lançamento</h2>
+      <form id="form" class="grid md:grid-cols-5 gap-4">
+        <input id="data" type="date" required class="bg-gray-900 text-white p-2 rounded shadow" />
+        <input id="descricao" type="text" placeholder="Descrição" required class="bg-gray-900 text-white p-2 rounded shadow" />
+        <input id="valor" type="number" placeholder="Valor R$" required class="bg-gray-900 text-white p-2 rounded shadow" />
+        <select id="tipo" class="bg-gray-900 text-white p-2 rounded shadow">
+          <option value="entrada">Entrada</option>
+          <option value="saida">Saída</option>
+        </select>
+        <button type="submit" class="bg-emerald-500 hover:bg-emerald-600 text-white p-2 rounded shadow transition">
+          Salvar
+        </button>
+      </form>
+    </section>
+
+    <section class="bg-gray-800 p-6 rounded-2xl shadow-xl mb-8">
+      <h2 class="text-xl font-semibold text-emerald-300 mb-4">📊 Gráfico de Lucro / Prejuízo</h2>
+      <canvas id="grafico" class="w-full h-64"></canvas>
+    </section>
+
+    <section class="bg-gray-800 p-6 rounded-2xl shadow-xl">
+      <h2 class="text-xl font-semibold text-emerald-300 mb-4">📄 Lançamentos</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left table-auto">
+          <thead class="bg-gray-700">
+            <tr>
+              <th class="p-2">Data</th>
+              <th class="p-2">Descrição</th>
+              <th class="p-2">Valor</th>
+              <th class="p-2">Tipo</th>
+              <th class="p-2">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tabela" class="bg-gray-900"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
